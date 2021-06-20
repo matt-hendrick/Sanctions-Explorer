@@ -14,6 +14,8 @@ function Home() {
     setUserSearch(updatedUserSearch);
   };
 
+  let updatedDate = new Date('6 / 11 / 2021');
+
   return (
     <div className="home">
       <div className="d-flex align-items-center justify-content-center home-inner">
@@ -43,7 +45,9 @@ function Home() {
           </Form>
 
           <p className="mt-2">
-            18,927 entries across OFAC, UN and EU. Updated 10 days ago
+            18,927 entries across OFAC, UN and EU. Updated{' '}
+            {((Date.now() - updatedDate) / (1000 * 3600 * 24)).toFixed(0)} days
+            ago
           </p>
         </div>
       </div>
