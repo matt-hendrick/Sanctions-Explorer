@@ -1,0 +1,13 @@
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../../images/home-bg.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(196, 206, 215, 0.3);
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
