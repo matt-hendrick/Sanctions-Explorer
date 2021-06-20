@@ -5,6 +5,7 @@ import axios from 'axios';
 // Components
 import Footer from '../../components/Footer/Footer';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
 
 function Search() {
   const [SDNList, setSDNList] = useState();
@@ -21,17 +22,19 @@ function Search() {
 
   return (
     <div>
-      <div>
-        <Sidebar />
+      {SDNList ? (
         <div>
-          {SDNList
-            ? SDNList.entities.map((item) => {
-                return <div>{item.item.lastName}</div>;
-              })
-            : null}
-          <Footer />
+          <Sidebar />
+          <div>
+            {SDNList.entities.map((item) => {
+              return <div>{item.item.lastName}</div>;
+            })}
+            <Footer />
+          </div>
         </div>
-      </div>
+      ) : (
+        <LoadingIndicator />
+      )}
     </div>
   );
 }
