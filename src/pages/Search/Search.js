@@ -53,11 +53,7 @@ function Search() {
                     <tr>
                       {headers.map((header) => {
                         const { title, field } = header;
-                        return (
-                          <th scope="col" key={field}>
-                            {title}
-                          </th>
-                        );
+                        return <th key={field}>{title}</th>;
                       })}
                     </tr>
                   </thead>
@@ -68,57 +64,35 @@ function Search() {
                         <tr key={i} className={item.inactive ? 'inactive' : ''}>
                           {headers.map((col, j) => {
                             if (j === 0) {
-                              return (
-                                <td scope="row" key={j}>
-                                  {item[col.field]}
-                                </td>
-                              );
+                              return <td key={j}>{item[col.field]}</td>;
                             }
                             if (
                               col.title === 'Type' &&
                               item[col.field] === 'Entity'
                             ) {
-                              return (
-                                <td scope={j === 0 ? 'row' : ''} key={j}>
-                                  Organization
-                                </td>
-                              );
+                              return <td key={j}>Organization</td>;
                             }
                             if (typeof item[col.field] === 'boolean') {
                               return (
-                                <td scope={j === 0 ? 'row' : ''} key={j}>
+                                <td key={j}>
                                   {item[col.field] ? 'Yes' : 'No'}
                                 </td>
                               );
                             }
                             if (col.field === 'Active Sanctions') {
-                              return (
-                                <td scope={j === 0 ? 'row' : ''} key={j}>
-                                  Yes
-                                </td>
-                              );
+                              return <td key={j}>Yes</td>;
                             }
                             if (col.field === 'Authority') {
-                              return (
-                                <td scope={j === 0 ? 'row' : ''} key={j}>
-                                  OFAC
-                                </td>
-                              );
+                              return <td key={j}>OFAC</td>;
                             } else if (
                               col.field === 'programList' &&
                               item[col.field].program.length > 0
                             ) {
                               return (
-                                <td scope={j === 0 ? 'row' : ''} key={j}>
-                                  {item[col.field].program[0]}
-                                </td>
+                                <td key={j}>{item[col.field].program[0]}</td>
                               );
                             } else {
-                              return (
-                                <td scope={j === 0 ? 'row' : ''} key={j}>
-                                  {item[col.field]}
-                                </td>
-                              );
+                              return <td key={j}>{item[col.field]}</td>;
                             }
                           })}
                         </tr>
