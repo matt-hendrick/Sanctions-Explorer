@@ -4,7 +4,6 @@ import Logo from '../../images/logo.png';
 //Bootstrap
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
 
 function MyNavbar() {
   return (
