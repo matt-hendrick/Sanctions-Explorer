@@ -11,3 +11,41 @@
   bottom: 0px;
   z-index: -1;
 }
+
+.home-inner {
+  min-height: calc(100vh - 116px);
+  min-width: 100%;
+}
+
+.btn {
+  border-radius: 0 !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  font-size: 14px !important;
+}
+
+.btn-primary {
+  color: #fff !important;
+  background-color: #043d5d !important;
+  border-color: #043d5d !important;
+}
+
+.btn-primary:hover {
+  background-color: #022538 !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.logo {
+  max-width: 300px;
+}
+
+input.home-search {
+  border: none;
+  border-radius: 0;
+  padding: 15px 10px;
+  height: 47px;
+  min-width: 380px;
+}
