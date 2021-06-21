@@ -1,6 +1,6 @@
 # Sanctions Explorer
 
-[Sanctions Explorer](https://sanctionsexplorer.web.app) is a clone of [C4ADS's Sanction Explorer](https://sanctionsexplorer.org).
+[Sanctions Explorer](https://sanctionsexplorer.web.app) is my version of [C4ADS's Sanction Explorer](https://sanctionsexplorer.org).
 
 ## Installation and Setup Instructions
 
