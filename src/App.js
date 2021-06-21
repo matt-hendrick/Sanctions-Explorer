@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 //Pages
 import Home from './pages/Home/Home';
 import Search from './pages/Search/Search';
+import Test from './pages/Test/Test';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar style={{ zIndex: '1' }} />
       <Switch>
         <Route path="/search" exact component={Search} />
+        <Route path="/test" exact component={Test} />
         <Route path="/" component={Home} />
       </Switch>
     </Router>
