@@ -1,0 +1,44 @@
+.footer-outer {
+  border-top: 1px solid #c7c8ca;
+  padding: 2rem 0;
+  .logo-c4ads {
+    img {
+      width: 100%;
+      max-width: 140px;
+    }
+    padding: 10px;
+    border-bottom: 2px solid #ea5353;
+    margin-bottom: 10px;
+  }
+
+  .logo-and-details {
+    max-width: 400px;
+    @media screen and (max-width: 575px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+  .footer-links {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      margin-bottom: 10px;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      &.empty {
+        @media screen and (min-width: 993px) and (max-width: 1110px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .footer-flex-position {
+    align-items: flex-end;
+    @media screen and (max-width: 1240px) {
+      align-items: center;
+    }
+  }
+}

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './Search.css';
+import './Search.scss';
 import axios from 'axios';
+import ReactToPrint from 'react-to-print';
+import Clipboard from 'react-clipboard.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Bootstrap
 import Row from 'react-bootstrap/Row';
@@ -47,6 +50,36 @@ function Search() {
                   Results <span>({SDNList.length})</span>
                 </h1>
               </div>
+              {SDNList.length > 0 && (
+                <div className="actions d-flex ml-auto">
+                  <div>
+                    <a href="/search">
+                      <FontAwesomeIcon icon="file-csv" />
+                      CSV
+                    </a>
+                  </div>
+                  <div>
+                    <ReactToPrint
+                      trigger={() => (
+                        <a href="/search">
+                          <FontAwesomeIcon icon="print" />
+                          PRINT
+                        </a>
+                      )}
+                    />
+                  </div>
+                  <Clipboard
+                    component="a"
+                    button-href="#"
+                    className="ml-2 text-uppercase"
+                    button-title="Share this page"
+                  >
+                    <FontAwesomeIcon icon="share-alt" />
+                    Share
+                  </Clipboard>
+                </div>
+              )}
+
               <div className="se-table-container">
                 <Table className="se-table">
                   <thead>

@@ -21,6 +21,7 @@
         border-right: 2px solid rgba(31, 35, 39, 0.08);
         padding-right: 10px;
         margin-left: 12px;
+        color: #043d5d;
         &.disabled {
           pointer-events: none;
           opacity: 0.5;
@@ -51,7 +52,7 @@
       i {
         &:first-child {
           opacity: 1;
-          color: $primary;
+          color: #043d5d;
         }
         &:last-child {
           display: none;
@@ -65,7 +66,7 @@
         }
         &:last-child {
           opacity: 1;
-          color: $primary;
+          color: #043d5d;
           position: relative;
           top: -5px;
         }
@@ -76,7 +77,7 @@
       left: 50%;
       margin-left: -4px;
       cursor: pointer;
-      color: $secondary;
+      color: #819eae;
       opacity: 0.5;
       &:first-child {
         top: 50%;
@@ -105,7 +106,7 @@
         }
       }
       th {
-        color: $secondary;
+        color: #819eae;
         border-width: 1px;
         font-size: 18px;
         border-color: rgba(31, 35, 39, 0.08);
@@ -128,7 +129,7 @@
   }
   .notfound-tips {
     padding: 1rem;
-    color: $primary;
+    color: #043d5d;
     background-color: #ffffff;
     border: 1px solid #eeefee;
     border-top: none;
