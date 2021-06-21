@@ -67,7 +67,9 @@ function Sidebar() {
         <h4 className="filter-group-title">Programs</h4>
         <div className="halfs">
           <div className="half mb-0">
-            <a href="/search">Select Programs</a>
+            <a href="/search" className="sidebar-links">
+              Select Programs
+            </a>
           </div>
           <div className="half mb-0">
             <input type="checkbox" id="allPrograms" />
@@ -76,7 +78,9 @@ function Sidebar() {
         </div>
       </div>
       <div className="d-flex mt-3">
-        <a href="/search">Reset all filters</a>
+        <a href="/search" className="sidebar-links">
+          Reset all filters
+        </a>
         <Button className="ml-auto" color="primary">
           Search
         </Button>

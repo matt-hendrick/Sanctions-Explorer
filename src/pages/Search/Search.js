@@ -71,7 +71,7 @@ function Search() {
                   <Clipboard
                     component="a"
                     button-href="#"
-                    className="ml-2 text-uppercase"
+                    className="ml-2 text-uppercase search-links"
                     button-title="Share this page"
                   >
                     <FontAwesomeIcon icon="share-alt" />
@@ -134,8 +134,8 @@ function Search() {
                   </tbody>
                 </Table>
               </div>
+              <Footer />
             </main>
-            <Footer />
           </Col>
         </Row>
       ) : (
