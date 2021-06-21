@@ -89,21 +89,30 @@
       }
     }
   }
-  .notfound {
-    font-size: 32px;
-    line-height: 39px;
+}
+.notfound {
+  font-size: 32px;
+  line-height: 39px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow-x: auto;
+  &.min-height {
+    height: 500px;
   }
-  .notfound-tips {
-    padding: 1rem;
-    color: #043d5d;
-    background-color: #ffffff;
-    border: 1px solid #eeefee;
-    border-top: none;
-    h2 {
-      font-size: 20px;
-    }
-    h4 {
-      font-size: 15px;
-    }
+}
+.notfound-tips {
+  padding: 1rem;
+  color: #043d5d;
+  background-color: #ffffff;
+  border: 1px solid #eeefee;
+  border-top: none;
+  h2 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 15px;
   }
 }

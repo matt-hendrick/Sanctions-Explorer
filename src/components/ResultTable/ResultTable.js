@@ -1,3 +1,4 @@
+import React from 'react';
 import './ResultTable.scss';
 import ReactToPrint from 'react-to-print';
 import Clipboard from 'react-clipboard.js';
@@ -27,86 +28,92 @@ function ResultTable(props) {
             Results <span>({props.nbHits})</span>
           </h1>
         </div>
-        {props.nbHits > 0 && (
-          <div className="actions d-flex ml-auto justify-content-end">
-            <div>
-              <a href="/search">
-                <FontAwesomeIcon icon="file-csv" />
-                CSV
-              </a>
+        {props.nbHits > 0 && props.hits ? (
+          <React.Fragment>
+            <div className="actions d-flex ml-auto justify-content-end">
+              <div>
+                <a href="/search">
+                  <FontAwesomeIcon icon="file-csv" />
+                  CSV
+                </a>
+              </div>
+              <div>
+                <ReactToPrint
+                  trigger={() => (
+                    <a href="/search">
+                      <FontAwesomeIcon icon="print" />
+                      PRINT
+                    </a>
+                  )}
+                />
+              </div>
+              <Clipboard
+                component="a"
+                button-href="#"
+                className="ml-2 text-uppercase search-links"
+                button-title="Share this page"
+              >
+                <FontAwesomeIcon icon="share-alt" />
+                Share
+              </Clipboard>
             </div>
-            <div>
-              <ReactToPrint
-                trigger={() => (
-                  <a href="/search">
-                    <FontAwesomeIcon icon="print" />
-                    PRINT
-                  </a>
-                )}
-              />
+            <div className="se-table-container">
+              <Table className="se-table">
+                <thead>
+                  <tr>
+                    {headers.map((header) => {
+                      const { title, field } = header;
+                      return <th key={field}>{title}</th>;
+                    })}
+                  </tr>
+                </thead>
+                <tbody>
+                  {props.hits.map((item, i) => {
+                    return (
+                      <tr key={i}>
+                        {headers.map((col, j) => {
+                          if (j === 0) {
+                            return <td key={j}>{item[col.field]}</td>;
+                          }
+                          if (
+                            col.title === 'Type' &&
+                            item[col.field] === 'Entity'
+                          ) {
+                            return <td key={j}>Organization</td>;
+                          }
+                          if (typeof item[col.field] === 'boolean') {
+                            return (
+                              <td key={j}>{item[col.field] ? 'Yes' : 'No'}</td>
+                            );
+                          }
+                          if (col.field === 'Active Sanctions') {
+                            return <td key={j}>Yes</td>;
+                          }
+                          if (col.field === 'Authority') {
+                            return <td key={j}>OFAC</td>;
+                          } else if (
+                            col.field === 'programList' &&
+                            item[col.field].program.length > 0
+                          ) {
+                            return (
+                              <td key={j}>{item[col.field].program[0]}</td>
+                            );
+                          } else {
+                            return <td key={j}>{item[col.field]}</td>;
+                          }
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
             </div>
-            <Clipboard
-              component="a"
-              button-href="#"
-              className="ml-2 text-uppercase search-links"
-              button-title="Share this page"
-            >
-              <FontAwesomeIcon icon="share-alt" />
-              Share
-            </Clipboard>
+          </React.Fragment>
+        ) : (
+          <div className="se-table-container">
+            <div className="notfound">Enter a search term to view results</div>
           </div>
         )}
-
-        <div className="se-table-container">
-          <Table className="se-table">
-            <thead>
-              <tr>
-                {headers.map((header) => {
-                  const { title, field } = header;
-                  return <th key={field}>{title}</th>;
-                })}
-              </tr>
-            </thead>
-            <tbody>
-              {props.hits &&
-                props.hits.map((item, i) => {
-                  return (
-                    <tr key={i}>
-                      {headers.map((col, j) => {
-                        if (j === 0) {
-                          return <td key={j}>{item[col.field]}</td>;
-                        }
-                        if (
-                          col.title === 'Type' &&
-                          item[col.field] === 'Entity'
-                        ) {
-                          return <td key={j}>Organization</td>;
-                        }
-                        if (typeof item[col.field] === 'boolean') {
-                          return (
-                            <td key={j}>{item[col.field] ? 'Yes' : 'No'}</td>
-                          );
-                        }
-                        if (col.field === 'Active Sanctions') {
-                          return <td key={j}>Yes</td>;
-                        }
-                        if (col.field === 'Authority') {
-                          return <td key={j}>OFAC</td>;
-                        } else if (
-                          col.field === 'programList' &&
-                          item[col.field].program.length > 0
-                        ) {
-                          return <td key={j}>{item[col.field].program[0]}</td>;
-                        } else {
-                          return <td key={j}>{item[col.field]}</td>;
-                        }
-                      })}
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </Table>
-        </div>
         <Footer />
       </main>
     </Col>
