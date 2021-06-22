@@ -15,7 +15,7 @@ function MyNavbar() {
       className="header-desktop rd-shadow"
       light
       expand="md"
-      position="fixed"
+      fixed="top"
     >
       <Container className="pt-2 pb-2">
         <Navbar.Brand href="/">
