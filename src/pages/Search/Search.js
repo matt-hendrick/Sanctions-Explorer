@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Search.scss';
-
-// React Router
-import { useParams } from 'react-router-dom';
 
 // Algolia Search
 import { SearchBox, connectStateResults } from 'react-instantsearch-dom';
