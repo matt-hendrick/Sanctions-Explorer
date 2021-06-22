@@ -19,7 +19,6 @@ function Home() {
   };
 
   const handleSubmit = (event) => {
-    console.log('Test');
     event.preventDefault();
 
     setRedirect(true);
