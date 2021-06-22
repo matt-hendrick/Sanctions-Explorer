@@ -1,1 +1,0 @@
-export { updateResults } from './actions';
