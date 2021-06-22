@@ -1,6 +1,8 @@
 import React from 'react';
 import Logo from '../../images/logo.png';
 
+import './Navbar.scss';
+
 //Bootstrap
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -8,8 +10,14 @@ import Container from 'react-bootstrap/Container';
 
 function MyNavbar() {
   return (
-    <Navbar collapseOnSelect expand="md" style={{ backgroundColor: '#ffffff' }}>
-      <Container>
+    <Navbar
+      collapseOnSelect
+      className="header-desktop rd-shadow"
+      light
+      expand="md"
+      position="fixed"
+    >
+      <Container className="pt-2 pb-2">
         <Navbar.Brand href="/">
           <img alt="Sanctions Explorer Logo" src={Logo} width="250px" />
         </Navbar.Brand>
@@ -22,7 +30,6 @@ function MyNavbar() {
             <Nav.Link
               style={{
                 padding: '12px 20px 10px',
-                color: 'rgba(0,0,0,.7)',
               }}
               href="./search"
             >
@@ -31,7 +38,6 @@ function MyNavbar() {
             <Nav.Link
               style={{
                 padding: '12px 20px 10px',
-                color: 'rgba(0,0,0,.7)',
               }}
               href="./analytics"
             >
@@ -40,7 +46,6 @@ function MyNavbar() {
             <Nav.Link
               style={{
                 padding: '12px 20px 10px',
-                color: 'rgba(0,0,0,.7)',
               }}
               href="./feedback"
             >
@@ -49,7 +54,6 @@ function MyNavbar() {
             <Nav.Link
               style={{
                 padding: '12px 20px 10px',
-                color: 'rgba(0,0,0,.7)',
               }}
               href="./about"
             >

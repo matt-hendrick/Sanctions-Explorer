@@ -1,0 +1,58 @@
+.header-desktop {
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid #c7c8ca;
+  &.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.7) !important;
+  }
+  .nav-item {
+    &.active {
+      border-bottom: 2px solid #043d5d;
+      a {
+        color: #043d5d !important;
+      }
+    }
+    .nav-link {
+      font-size: 15px;
+      padding: 12px 20px 10px !important;
+      &:hover,
+      &:focus {
+        color: #043d5d !important;
+      }
+    }
+  }
+
+  .dropdown-toggle {
+    &::after {
+      border: none;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      content: '\f078';
+      padding-top: 12px;
+      padding-left: 12px;
+      background-color: white;
+    }
+  }
+  .rd-dropdown-toggle {
+    cursor: pointer;
+    .profile {
+      padding: 0.6rem 1rem;
+      margin-right: 10px;
+      text-align: center;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      color: rgba(0, 0, 0, 0.5);
+    }
+    div {
+      span {
+        &:first-child {
+          display: block;
+        }
+        &:last-child {
+          color: #666666;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
