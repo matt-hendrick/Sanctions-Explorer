@@ -1,6 +1,7 @@
 @import 'search.print';
 .search {
   .content-title {
+    position: relative;
     border-bottom: 1px solid rgba(31, 35, 39, 0.08);
     h1 {
       font-size: 24px;
@@ -15,7 +16,14 @@
   }
   .content {
     padding: 2rem 2rem 0;
+    margin-top: 90px;
     min-height: calc(100vh - 74px);
+    @media all and (max-width: 1000px) {
+      margin-top: 65vh;
+    }
+    @media all and (max-width: 500px) {
+      margin-top: 57vh;
+    }
     .actions {
       div a {
         border-right: 2px solid rgba(31, 35, 39, 0.08);
@@ -37,7 +45,20 @@
 
 //Sidebar
 
+.sidebar-container {
+  position: fixed !important;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  @media all and (max-width: 768px) {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 .sidebar {
+  margin-top: 90px;
   padding: 2rem;
   background-color: #f6f8fa;
   height: calc(100vh - 76px);
@@ -46,7 +67,6 @@
     padding: 1rem 1.5rem;
   }
   @media screen and (max-width: 768px) {
-    margin-top: 0;
     height: auto;
   }
   .title {
