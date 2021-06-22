@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Search.scss';
+
+// React Router
+import { useParams } from 'react-router-dom';
 
 // Algolia Search
 import { SearchBox, connectStateResults } from 'react-instantsearch-dom';
@@ -12,13 +15,17 @@ import Col from 'react-bootstrap/Col';
 import ResultTable from '../../components/ResultTable/ResultTable';
 
 // Bootstrap
-import Button from 'react-bootstrap/Button';
+import BoostrapButton from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function Search() {
   const [userSearch, setUserSearch] = useState('');
 
+  const path = window.location.search;
+  let homeSearchQuery = path.substring(path.lastIndexOf('=') + 1);
+
   const handleUserSearchChange = (event) => {
+    homeSearchQuery = null;
     const updatedUserSearch = event.target.value;
     setUserSearch(updatedUserSearch);
   };
@@ -26,7 +33,7 @@ function Search() {
   const StateResults = ({ searchResults }) => {
     let nbHits = searchResults && searchResults.nbHits;
 
-    if (userSearch === '') {
+    if (userSearch === '' && homeSearchQuery === null) {
       nbHits = 0;
       searchResults = null;
     }
@@ -49,6 +56,7 @@ function Search() {
               <SearchBox
                 searchState={{ query: userSearch }}
                 onChange={handleUserSearchChange}
+                defaultRefinement={homeSearchQuery}
               />
 
               <div className="filter-group mt-3">
@@ -76,16 +84,16 @@ function Search() {
             <h2 className="title">Filter</h2>
             <div>
               <h3>Type</h3>
-              <Button>Type</Button>
-              <Button>Organization</Button>
-              <Button>Aircraft</Button>
-              <Button>Vessel</Button>
+              <BoostrapButton>Type</BoostrapButton>
+              <BoostrapButton>Organization</BoostrapButton>
+              <BoostrapButton>Aircraft</BoostrapButton>
+              <BoostrapButton>Vessel</BoostrapButton>
             </div>
             <div>
               <h3>Sanctioning Authority</h3>
-              <Button>OFAC</Button>
-              <Button>UN</Button>
-              <Button>EU</Button>
+              <BoostrapButton>OFAC</BoostrapButton>
+              <BoostrapButton>UN</BoostrapButton>
+              <BoostrapButton>EU</BoostrapButton>
             </div>
             <div className="filter-group">
               <h4 className="filter-group-title">Programs</h4>
@@ -105,9 +113,9 @@ function Search() {
               <a href="/search" className="sidebar-links">
                 Reset all filters
               </a>
-              <Button className="ml-auto" color="primary">
+              <BoostrapButton className="ml-auto" color="primary">
                 Search
-              </Button>
+              </BoostrapButton>
             </div>
           </div>
         </Col>
