@@ -72,8 +72,12 @@ function ResultTable(props) {
                     return (
                       <tr key={i}>
                         {headers.map((col, j) => {
-                          if (j === 0) {
-                            return <td key={j}>{item[col.field]}</td>;
+                          if (col.field === 'lastName' && item['firstName']) {
+                            return (
+                              <td
+                                key={j}
+                              >{`${item['firstName']} ${item['lastName']}`}</td>
+                            );
                           }
                           if (
                             col.title === 'Type' &&
