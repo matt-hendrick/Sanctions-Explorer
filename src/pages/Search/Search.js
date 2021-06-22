@@ -30,7 +30,7 @@ function Search() {
   const StateResults = ({ searchResults }) => {
     let nbHits = searchResults && searchResults.nbHits;
 
-    if (userSearch === '' && homeSearchQuery === null) {
+    if (userSearch === '' && !homeSearchQuery) {
       nbHits = 0;
       searchResults = null;
     }
