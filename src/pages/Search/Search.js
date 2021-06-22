@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 
 // Components
 import ResultTable from '../../components/ResultTable/ResultTable';
+import Button from '../../components/Button/Button';
 
 // Bootstrap
 import BoostrapButton from 'react-bootstrap/Button';
@@ -79,18 +80,22 @@ function Search() {
               </div>
             </div>
             <h2 className="title">Filter</h2>
-            <div>
+            <div className="button-group-sidebar">
               <h3>Type</h3>
-              <BoostrapButton>Type</BoostrapButton>
-              <BoostrapButton>Organization</BoostrapButton>
-              <BoostrapButton>Aircraft</BoostrapButton>
-              <BoostrapButton>Vessel</BoostrapButton>
+              <div className="halfs">
+                <Button>Type</Button>
+                <Button>Organization</Button>
+                <Button>Aircraft</Button>
+                <Button>Vessel</Button>
+              </div>
             </div>
-            <div>
+            <div className="button-group-sidebar">
               <h3>Sanctioning Authority</h3>
-              <BoostrapButton>OFAC</BoostrapButton>
-              <BoostrapButton>UN</BoostrapButton>
-              <BoostrapButton>EU</BoostrapButton>
+              <div className="halfs">
+                <Button>OFAC</Button>
+                <Button>UN</Button>
+                <Button>EU</Button>
+              </div>
             </div>
             <div className="filter-group">
               <h4 className="filter-group-title">Programs</h4>
@@ -100,9 +105,8 @@ function Search() {
                     Select Programs
                   </a>
                 </div>
-                <div className="half mb-0">
-                  <input type="checkbox" id="allPrograms" />
-                  <label for="allPrograms">All Programs</label>
+                <div className="half mb-0 ">
+                  <Button className="checkbox">All Programs</Button>
                 </div>
               </div>
             </div>

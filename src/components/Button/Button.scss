@@ -1,0 +1,112 @@
+.button {
+  padding-left: 25px;
+
+  label {
+    display: block;
+    position: relative;
+    align-items: center;
+    font-size: 14px;
+    color: #707071;
+    text-transform: capitalize;
+    span.se-popover-trigger {
+      cursor: pointer;
+    }
+  }
+
+  label::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 1px;
+    margin-left: -25px;
+    border-radius: 2px;
+    border: 2px solid #043d5d;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  }
+
+  .border-default::before {
+    border: 1px solid #707071;
+  }
+
+  label::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 12px;
+    margin-left: -25px;
+    top: 4px;
+    left: 5px;
+    margin-top: -3px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    background: none !important;
+    transform: rotate(45deg);
+    display: none;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  input:checked + label::before,
+  input:checked + label::after {
+    background: #043d5d;
+    display: block;
+  }
+
+  input:checked + .border-default::before {
+    border: 1px solid transparent;
+  }
+}
+
+.half {
+  width: 50%;
+  @media (min-width: 769px) and (max-width: 1123px) {
+    width: 100%;
+  }
+  margin-bottom: 24px;
+  &:nth-child(3),
+  &:nth-child(4) {
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: 1280px) {
+    margin-bottom: 0.6em;
+  }
+
+  &:nth-child(odd) {
+    .checkbox {
+      padding-right: 5px;
+      @media (max-width: 1123px) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .checkbox {
+    padding-left: 0;
+    input:checked + label {
+      background: #043d5d;
+      color: white;
+    }
+    label {
+      padding: 6px 10px;
+      border-radius: 1rem;
+      background-color: #ededee;
+      &::before,
+      &::after {
+        width: 0;
+        height: 0;
+        position: relative;
+        border: none;
+        background: transparent;
+        margin: 0;
+      }
+    }
+  }
+}
