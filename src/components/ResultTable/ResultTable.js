@@ -32,7 +32,7 @@ function ResultTable(props) {
           <React.Fragment>
             <div className="actions d-flex ml-auto justify-content-end">
               <div>
-                <a href="/search">
+                <a href="#">
                   <FontAwesomeIcon icon="file-csv" />
                   CSV
                 </a>
@@ -40,7 +40,7 @@ function ResultTable(props) {
               <div>
                 <ReactToPrint
                   trigger={() => (
-                    <a href="/search">
+                    <a href="#">
                       <FontAwesomeIcon icon="print" />
                       PRINT
                     </a>
