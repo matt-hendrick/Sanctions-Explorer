@@ -18,11 +18,8 @@
     padding: 2rem 2rem 0;
     margin-top: 90px;
     min-height: calc(100vh - 74px);
-    @media all and (max-width: 1000px) {
-      margin-top: 65vh;
-    }
-    @media all and (max-width: 500px) {
-      margin-top: 57vh;
+    @media all and (max-width: 991px) {
+      margin-top: 0vh;
     }
     .actions {
       div a {
@@ -51,8 +48,8 @@
   top: 0;
   left: 0;
   z-index: 3;
-  @media all and (max-width: 768px) {
-    position: relative;
+  @media all and (max-width: 991px) {
+    position: relative !important;
     z-index: 1;
   }
 }

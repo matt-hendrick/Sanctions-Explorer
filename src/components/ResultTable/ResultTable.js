@@ -21,8 +21,12 @@ const headers = [
 
 function ResultTable(props) {
   return (
-    <Col className="pr-0 pl-0" md={{ size: 9, order: 2 }}>
-      <main className="content offset-md-3 order-md-3">
+    <Col
+      className="pr-0 pl-0"
+      md={{ size: 9, order: 2 }}
+      lg={{ size: 9, order: 2, offset: 3 }}
+    >
+      <main className="content ">
         <div className="content-title d-flex">
           <h1>
             Results <span>({props.nbHits})</span>
