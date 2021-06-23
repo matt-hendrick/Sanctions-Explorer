@@ -18,12 +18,13 @@ import Form from 'react-bootstrap/Form';
 
 function Search() {
   const [userSearch, setUserSearch] = useState('');
+  const [edited, setEdited] = useState(false);
 
   const path = window.location.search;
   let homeSearchQuery = path.substring(path.lastIndexOf('=') + 1);
 
   const handleUserSearchChange = (event) => {
-    homeSearchQuery = null;
+    setEdited(true);
     const updatedUserSearch = event.target.value;
     setUserSearch(updatedUserSearch);
   };
@@ -31,7 +32,7 @@ function Search() {
   const StateResults = ({ searchResults }) => {
     let nbHits = searchResults && searchResults.nbHits;
 
-    if (userSearch === '' && !homeSearchQuery) {
+    if (userSearch === '' && edited) {
       nbHits = 0;
       searchResults = null;
     }
