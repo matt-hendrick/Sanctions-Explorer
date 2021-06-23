@@ -32,7 +32,7 @@ function Search() {
   const StateResults = ({ searchResults }) => {
     let nbHits = searchResults && searchResults.nbHits;
 
-    if (userSearch === '' && edited) {
+    if (userSearch === '' && (edited || !homeSearchQuery)) {
       nbHits = 0;
       searchResults = null;
     }
