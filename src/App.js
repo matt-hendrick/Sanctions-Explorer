@@ -19,7 +19,7 @@ const searchClient = algoliasearch(
 
 function App() {
   return (
-    <InstantSearch searchClient={searchClient} indexName="SanctionsExplorer">
+    <InstantSearch searchClient={searchClient} indexName="Sanctions_Explorer">
       <Router>
         <Navbar style={{ zIndex: '1' }} />
         <Switch>
