@@ -13,8 +13,8 @@ import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch } from 'react-instantsearch-dom';
 
 const searchClient = algoliasearch(
-  '8OXVTKUAVM',
-  'eb4b58407b44e15f9c2e112b3eb52f47'
+  'NX53QMBAV4',
+  '5c5efa3a5e4e787099972c0ef9ef86b7'
 );
 
 function App() {
